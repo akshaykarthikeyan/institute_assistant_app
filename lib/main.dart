@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
       create: (context) => NameProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Provider App',
+        title: 'Institute assistant app',
         home: StudentsHomePage(),
       ),
     );
