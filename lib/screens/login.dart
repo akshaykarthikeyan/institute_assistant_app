@@ -10,7 +10,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   List<String> _category = ['Students', 'Teachers', 'Staffs'];
   String _selectedCategory;
-
+  String _password;
   @override
   Widget build(BuildContext context) {
     var fieldText = TextEditingController();
@@ -36,7 +36,7 @@ class _LoginState extends State<Login> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 100.0,
+                      height: 150.0,
                     ),
                     Align(
                       alignment: Alignment.topLeft,
@@ -62,25 +62,35 @@ class _LoginState extends State<Login> {
                     SizedBox(
                       height: 30.0,
                     ),
-                    Container(
-                      width: 330.0,
-                      child: DropdownButton(
-                        isExpanded: true,
-                        icon: Icon(Icons.keyboard_arrow_down),
-                        hint: Text(
-                            '  Choose Category'), // Not necessary for Option 1
-                        value: _selectedCategory,
-                        onChanged: (newValue) {
-                          setState(() {
-                            _selectedCategory = newValue;
-                          });
-                        },
-                        items: _category.map((location) {
-                          return DropdownMenuItem(
-                            child: Text(location),
-                            value: location,
-                          );
-                        }).toList(),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        child: DropdownButtonFormField(
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.category_outlined,
+                            ),
+                          ),
+                          isExpanded: true,
+                          icon: Icon(Icons.keyboard_arrow_down),
+                          hint: Text(
+                              'Choose Category'), // Not necessary for Option 1
+                          value: _selectedCategory,
+                          onChanged: (newValue) {
+                            setState(() {
+                              _selectedCategory = newValue;
+                            });
+                          },
+                          items: _category.map((location) {
+                            return DropdownMenuItem(
+                              child: Text(
+                                location,
+                                textAlign: TextAlign.center,
+                              ),
+                              value: location,
+                            );
+                          }).toList(),
+                        ),
                       ),
                     ),
                     Padding(
@@ -113,13 +123,17 @@ class _LoginState extends State<Login> {
                           },
                           decoration: new InputDecoration(
                               prefixIcon: Icon(
-                                Icons.lock_rounded,
+                                Icons.lock_open_outlined,
                               ),
                               labelText: 'Password',
                               labelStyle: TextStyle(
                                 color: Colors.black87,
                                 fontSize: 17,
                               )),
+                          validator: (val) =>
+                              val.length < 4 ? 'Password too short' : null,
+                          onSaved: (val) => _password = val,
+                          obscureText: true,
                         ),
                       ),
                     ),
