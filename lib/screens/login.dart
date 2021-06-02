@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:institute_assistant_app/screens/s_students_home_page.dart';
 
 class Login extends StatefulWidget {
   const Login({Key key}) : super(key: key);
@@ -9,7 +10,6 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   List<String> _category = ['students', 'teachers', 'staffs'];
-  String _selectedCategory;
   String _password;
   String _selectedLocation;
   int _selectedLocationIndex;
@@ -163,8 +163,11 @@ class _LoginState extends State<Login> {
                               children: [
                                 TextButton(
                                   onPressed: () {
-                                    print(inputText);
-                                    print(inputText1);
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                StudentsHomePage()));
                                   },
                                   child: Text(
                                     '      Login     ',

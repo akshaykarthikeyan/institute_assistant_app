@@ -43,7 +43,7 @@ class STeachersPage extends StatelessWidget {
                       ),
                       child: Container(
                         height: screenWidth / 4,
-                        width: screenWidth / 1.12,
+                        width: screenWidth / 1.13,
                         decoration: BoxDecoration(
                           color: Colors.red.shade500,
                           borderRadius: BorderRadius.circular(30.0),
