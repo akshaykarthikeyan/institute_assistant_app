@@ -8,9 +8,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  List<String> _category = ['Students', 'Teachers', 'Staffs'];
+  List<String> _category = ['students', 'teachers', 'staffs'];
   String _selectedCategory;
   String _password;
+  String _selectedLocation;
+  int _selectedLocationIndex;
+
   @override
   Widget build(BuildContext context) {
     var fieldText = TextEditingController();
@@ -75,16 +78,18 @@ class _LoginState extends State<Login> {
                           icon: Icon(Icons.keyboard_arrow_down),
                           hint: Text(
                               'Choose Category'), // Not necessary for Option 1
-                          value: _selectedCategory,
+                          value: _selectedLocationIndex == null
+                              ? null
+                              : _category[_selectedLocationIndex],
                           onChanged: (newValue) {
                             setState(() {
-                              _selectedCategory = newValue;
+                              _selectedLocation = newValue;
                             });
                           },
                           items: _category.map((location) {
                             return DropdownMenuItem(
                               child: Text(
-                                location,
+                                '${location[0].toUpperCase() + location.substring(1)}',
                                 textAlign: TextAlign.center,
                               ),
                               value: location,
