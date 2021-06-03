@@ -60,6 +60,7 @@ class _AttendanceNamesState extends State<AttendanceNames> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     return WillPopScope(
       onWillPop: () async {
         var before = !controller.isSelecting;

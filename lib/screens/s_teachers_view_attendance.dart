@@ -60,53 +60,50 @@ class TeachersAttendanceView extends StatelessWidget {
                                     )));
                       },
                       child: Card(
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                flex: 2,
-                                child: Container(
-                                    child: Image.network(
-                                  '${item.picture}',
-                                  width: screenWidth / 10,
-                                )),
-                              ),
-                              Expanded(
-                                flex: 7,
-                                child: Container(
-                                  width: double.infinity,
-                                  height: screenHeight / 9.5,
-                                  color: Colors.black12,
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        width: 10.0,
-                                      ),
-                                      Text(
-                                        '${item.firstName}'
-                                        ' ${item.lastName}',
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: screenWidth / 22.0,
-                                          letterSpacing: 2.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
+                        color: Colors.white60,
+                        child: Row(children: [
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                                child: Image.network(
+                              '${item.picture}',
+                              width: screenWidth / 10,
+                              height: screenHeight / 12,
+                            )),
+                          ),
+                          Expanded(
+                            flex: 7,
+                            child: Container(
+                              width: double.infinity,
+                              height: screenHeight / 9.5,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 10.0,
                                   ),
-                                ),
+                                  Text(
+                                    '${item.firstName}'
+                                    ' ${item.lastName}',
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: screenWidth / 22.0,
+                                      letterSpacing: 2.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  height: screenHeight / 9.5,
-                                  color: Colors.black12,
-                                  child:
-                                      Icon(Icons.assignment_turned_in_outlined),
-                                ),
-                              ),
-                            ]),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Container(
+                              height: screenHeight / 9.5,
+                              child: Icon(Icons.assignment_turned_in_outlined),
+                            ),
+                          ),
+                        ]),
                       ),
                     );
                   }).toList(),
