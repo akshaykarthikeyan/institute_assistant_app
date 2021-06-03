@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:institute_assistant_app/screens/o_otherstaff_home_page.dart';
 import 'package:institute_assistant_app/screens/s_students_home_page.dart';
+import 'package:institute_assistant_app/screens/t_teachers_home_page.dart';
 
 class Login extends StatefulWidget {
   const Login({Key key}) : super(key: key);
@@ -163,11 +165,47 @@ class _LoginState extends State<Login> {
                               children: [
                                 TextButton(
                                   onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                StudentsHomePage()));
+                                    setState(() {
+                                      if (_selectedLocation != null &&
+                                          inputText == 'students' &&
+                                          inputText1 == 'students') {
+                                        if (_selectedLocation == 'students') {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentsHomePage()));
+                                        }
+                                      } else {
+                                        print('failed');
+                                      }
+                                      if (_selectedLocation != null &&
+                                          inputText == 'teachers' &&
+                                          inputText1 == 'teachers') {
+                                        if (_selectedLocation == 'teachers') {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      TeachersHomePage()));
+                                        }
+                                      } else {
+                                        print('failed');
+                                      }
+                                      if (_selectedLocation != null &&
+                                          inputText == 'staffs' &&
+                                          inputText1 == 'staffs') {
+                                        if (_selectedLocation == "staffs") {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      OtherStaffHomePage()));
+                                        }
+                                      } else {
+                                        print('failed');
+                                      }
+                                    });
                                   },
                                   child: Text(
                                     '      Login     ',
