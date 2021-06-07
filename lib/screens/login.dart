@@ -130,7 +130,7 @@ class _LoginState extends State<Login> {
                           },
                           decoration: new InputDecoration(
                               prefixIcon: Icon(
-                                Icons.lock_open_outlined,
+                                Icons.lock_outlined,
                               ),
                               labelText: 'Password',
                               labelStyle: TextStyle(

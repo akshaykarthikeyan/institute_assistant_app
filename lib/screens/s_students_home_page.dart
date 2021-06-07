@@ -3,9 +3,9 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:institute_assistant_app/screens/map.dart';
-import 'package:institute_assistant_app/screens/o_other_staff.dart';
+import 'package:institute_assistant_app/screens/s_otherstaff_attendance.dart';
 import 'package:institute_assistant_app/screens/s_student_page.dart';
-import 'package:institute_assistant_app/screens/s_teachers_page.dart';
+import 'package:institute_assistant_app/screens/s_teachers_view_attendance.dart';
 
 class StudentsHomePage extends StatelessWidget {
   final List<String> imgList = [
@@ -67,7 +67,7 @@ class StudentsHomePage extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 30.0,
+                height: 35.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -110,7 +110,7 @@ class StudentsHomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 15.0,
+                height: 25.0,
               ),
               Row(
                 children: [
@@ -170,7 +170,7 @@ class StudentsHomePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => STeachersPage(),
+                              builder: (context) => TeachersAttendanceView(),
                             ),
                           );
                         },
@@ -194,7 +194,7 @@ class StudentsHomePage extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 Text(
-                                  'Teachers',
+                                  'Teachers List',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 22.0,
@@ -222,7 +222,7 @@ class StudentsHomePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => OtherStaff(),
+                              builder: (context) => OtherStaffAttendance(),
                             ),
                           );
                         },
@@ -246,8 +246,9 @@ class StudentsHomePage extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 Text(
-                                  'Other Staff',
+                                  'Staffs List',
                                   style: TextStyle(
+                                    inherit: true,
                                     color: Colors.white,
                                     fontSize: 22.0,
                                     letterSpacing: 2.0,

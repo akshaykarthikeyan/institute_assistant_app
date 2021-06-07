@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:institute_assistant_app/providers/name_provider.dart';
-import 'package:institute_assistant_app/screens/t_teachers_home_page.dart';
+import 'package:institute_assistant_app/screens/s_students_home_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Institute assistant app',
-        home: TeachersHomePage(),
+        home: StudentsHomePage(),
       ),
     );
   }
