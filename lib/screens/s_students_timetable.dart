@@ -115,7 +115,6 @@ class _CalendarScreenState extends State<CalendarScreen> {
           selectedColor: Colors.red,
           todayColor: Colors.red[600],
           eventColor: Colors.grey,
-          locale: 'de_DE',
           isExpanded: true,
           expandableDateFormat: 'EEEE, dd. MMMM yyyy',
           dayOfWeekStyle: TextStyle(

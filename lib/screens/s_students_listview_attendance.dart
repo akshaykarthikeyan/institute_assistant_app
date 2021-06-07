@@ -72,7 +72,7 @@ class StudentAttendanceView extends StatelessWidget {
                             )),
                           ),
                           Expanded(
-                            flex: 7,
+                            flex: 8,
                             child: Container(
                               width: double.infinity,
                               height: screenHeight / 9.5,
@@ -94,13 +94,6 @@ class StudentAttendanceView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: Container(
-                              height: screenHeight / 9.5,
-                              child: Icon(Icons.assignment_turned_in_outlined),
                             ),
                           ),
                         ]),

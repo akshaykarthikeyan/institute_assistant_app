@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:institute_assistant_app/models/names.dart';
 import 'package:institute_assistant_app/providers/name_provider.dart';
 import 'package:institute_assistant_app/screens/s_students_profile.dart';
-import 'package:institute_assistant_app/screens/s_students_timetable.dart';
 import 'package:provider/provider.dart';
 
 class TeachersAttendanceView extends StatelessWidget {
@@ -12,16 +11,6 @@ class TeachersAttendanceView extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     var nameProvider = Provider.of<NameProvider>(context);
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => StudentsTimeTable()),
-          );
-        },
-        child: const Icon(Icons.date_range),
-        backgroundColor: Colors.red,
-      ),
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.red.shade500,
@@ -29,7 +18,7 @@ class TeachersAttendanceView extends StatelessWidget {
         centerTitle: true,
         toolbarHeight: 60.0,
         title: Text(
-          'ATTENDANCE',
+          'Teachers List',
           style: TextStyle(
             fontSize: 17.0,
             letterSpacing: 5.0,
@@ -72,7 +61,7 @@ class TeachersAttendanceView extends StatelessWidget {
                             )),
                           ),
                           Expanded(
-                            flex: 7,
+                            flex: 8,
                             child: Container(
                               width: double.infinity,
                               height: screenHeight / 9.5,
@@ -94,13 +83,6 @@ class TeachersAttendanceView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: Container(
-                              height: screenHeight / 9.5,
-                              child: Icon(Icons.assignment_turned_in_outlined),
                             ),
                           ),
                         ]),

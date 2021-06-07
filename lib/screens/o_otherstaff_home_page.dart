@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:institute_assistant_app/screens/map.dart';
 import 'package:institute_assistant_app/screens/o_home.dart';
-import 'package:institute_assistant_app/screens/o_otherstaff_attendance.dart';
 
 class OtherStaffHomePage extends StatelessWidget {
   final List<String> imgList = [
@@ -92,56 +91,6 @@ class OtherStaffHomePage extends StatelessWidget {
                                   fontSize: 22.0,
                                   letterSpacing: 2.0,
                                   fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => StaffTimeTable(),
-                          ),
-                        );
-                      },
-                      child: Card(
-                        elevation: 7.0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        child: Container(
-                          height: screenWidth / 4,
-                          width: screenWidth / 1.13,
-                          decoration: BoxDecoration(
-                            color: Colors.red.shade500,
-                            borderRadius: BorderRadius.circular(30.0),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Icon(
-                                Icons.apartment_outlined,
-                                size: 45.0,
-                                color: Colors.white,
-                              ),
-                              Text(
-                                'Attendance',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22.0,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 2.0,
                                 ),
                               ),
                             ],
