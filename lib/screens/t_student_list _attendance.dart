@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:institute_assistant_app/models/names.dart';
-import 'package:institute_assistant_app/providers/name_provider.dart';
+import 'package:institute_assistant_app/models/students.dart';
+import 'package:institute_assistant_app/providers/student_provider.dart';
 import 'package:multi_select_item/multi_select_item.dart';
 import 'package:provider/provider.dart';
 
@@ -8,14 +8,14 @@ class Name extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    var nameProvider = Provider.of<NameProvider>(context);
+    var studentProvider = Provider.of<StudentProvider>(context);
     return FutureBuilder(
-      future: nameProvider.fetchData(),
-      builder: (BuildContext context, AsyncSnapshot<List<Names>> snapshot) {
+      future: studentProvider.fetchData(),
+      builder: (BuildContext context, AsyncSnapshot<List<Student>> snapshot) {
         if (snapshot.hasData) {
-          List<Names> names = snapshot.data;
+          List<Student> student = snapshot.data;
           return AttendanceNames(
-            mainList: names,
+            mainList: student,
           );
         } else {
           return Container(

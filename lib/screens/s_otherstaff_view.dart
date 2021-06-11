@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:institute_assistant_app/models/names.dart';
-import 'package:institute_assistant_app/providers/name_provider.dart';
+import 'package:institute_assistant_app/models/staffs.dart';
+import 'package:institute_assistant_app/providers/staff_provider.dart';
 import 'package:institute_assistant_app/screens/s_students_profile.dart';
 import 'package:provider/provider.dart';
 
@@ -9,7 +9,7 @@ class OtherStaffAttendance extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
-    var nameProvider = Provider.of<NameProvider>(context);
+    var staffProvider = Provider.of<StaffProvider>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -29,23 +29,23 @@ class OtherStaffAttendance extends StatelessWidget {
       ),
       body: SafeArea(
         child: FutureBuilder(
-          future: nameProvider.fetchData(),
-          builder: (BuildContext context, AsyncSnapshot<List<Names>> snapshot) {
+          future: staffProvider.fetchData(),
+          builder: (BuildContext context, AsyncSnapshot<List<Staff>> snapshot) {
             if (snapshot.hasData) {
-              List<Names> names = snapshot.data;
+              List<Staff> staff = snapshot.data;
               return SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: names.map((item) {
+                  children: staff.map((item) {
                     return InkWell(
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => NameProfile(
-                                      userID: '${item.id}',
+                                      userid: '${item.staff_id}',
                                       name:
-                                          '${item.firstName} ${item.lastName}',
+                                          '${item.first_name} ${item.last_name}',
                                     )));
                       },
                       child: Card(
@@ -55,7 +55,7 @@ class OtherStaffAttendance extends StatelessWidget {
                             flex: 2,
                             child: Container(
                                 child: Image.network(
-                              '${item.picture}',
+                              '${item.image}',
                               width: screenWidth / 10,
                               height: screenHeight / 12,
                             )),
@@ -71,8 +71,8 @@ class OtherStaffAttendance extends StatelessWidget {
                                     width: 10.0,
                                   ),
                                   Text(
-                                    '${item.firstName}'
-                                    ' ${item.lastName}',
+                                    '${item.first_name}'
+                                    ' ${item.last_name}',
                                     textAlign: TextAlign.start,
                                     style: TextStyle(
                                       color: Colors.black,

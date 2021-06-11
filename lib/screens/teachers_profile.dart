@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:institute_assistant_app/models/students.dart';
-import 'package:institute_assistant_app/providers/student_provider.dart';
+import 'package:institute_assistant_app/models/teachers.dart';
+import 'package:institute_assistant_app/providers/teacher_provider.dart';
 import 'package:provider/provider.dart';
 
-class NameProfile extends StatelessWidget {
+class TeacherNameProfile extends StatelessWidget {
   final String userid;
   final String name;
-  NameProfile({Key key, @required this.userid, @required this.name});
+  TeacherNameProfile({Key key, @required this.userid, @required this.name});
   @override
   Widget build(BuildContext context) {
-    var studentProvider = Provider.of<StudentProvider>(context);
+    var teachersProvider = Provider.of<TeachersProvider>(context);
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -19,7 +19,7 @@ class NameProfile extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red.shade500,
         title: Text(
-          'STUDENTS  PROFILE',
+          'TEACHERS  PROFILE',
           style: TextStyle(
             fontSize: 17.0,
             letterSpacing: 5.0,
@@ -31,10 +31,10 @@ class NameProfile extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: FutureBuilder(
-            future: studentProvider.fetchNameData(userid),
-            builder: (BuildContext context, AsyncSnapshot<Student> snapshot) {
+            future: teachersProvider.fetchNameData(userid),
+            builder: (BuildContext context, AsyncSnapshot<Teacher> snapshot) {
               if (snapshot.hasData) {
-                var students = snapshot.data;
+                var teachers = snapshot.data;
                 return Column(
                   children: [
                     Container(
@@ -49,7 +49,7 @@ class NameProfile extends StatelessWidget {
                             height: screenHeight / 5,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: NetworkImage('${students.image}'),
+                                image: NetworkImage('${teachers.image}'),
                                 fit: BoxFit.fitWidth,
                               ),
                               shape: BoxShape.circle,
@@ -59,7 +59,7 @@ class NameProfile extends StatelessWidget {
                             height: 15.0,
                           ),
                           Text(
-                            '${students.first_name}' ' ${students.last_name}',
+                            '${teachers.first_name}' ' ${teachers.last_name}',
                             style: TextStyle(
                               fontSize: 21.0,
                               letterSpacing: 3.0,
@@ -88,7 +88,7 @@ class NameProfile extends StatelessWidget {
                               Container(
                                 width: screenWidth / 1.2,
                                 child: Text(
-                                  '${students.email}',
+                                  '${teachers.email}',
                                   style: TextStyle(
                                     color: Colors.black,
                                     letterSpacing: 1.0,
@@ -109,7 +109,7 @@ class NameProfile extends StatelessWidget {
                                 height: 30.0,
                                 width: screenWidth / 1.2,
                                 child: Text(
-                                  '${students.gender}',
+                                  '${teachers.gender}',
                                   style: TextStyle(
                                     color: Colors.black,
                                     letterSpacing: 1.0,

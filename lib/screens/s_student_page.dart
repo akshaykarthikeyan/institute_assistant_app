@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:institute_assistant_app/screens/s_students_timetable.dart';
 
@@ -25,6 +26,14 @@ class StudentPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              Container(
+                height: 200,
+                child: CupertinoDatePicker(
+                  mode: CupertinoDatePickerMode.date,
+                  initialDateTime: DateTime.now(),
+                  onDateTimeChanged: (DateTime newDateTime) {},
+                ),
+              ),
               SizedBox(
                 height: 15.0,
               ),

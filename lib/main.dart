@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:institute_assistant_app/providers/name_provider.dart';
-import 'package:institute_assistant_app/screens/t_teachers_home_page.dart';
+import 'package:institute_assistant_app/providers/staff_provider.dart';
+import 'package:institute_assistant_app/providers/student_provider.dart';
+import 'package:institute_assistant_app/providers/tasks.dart';
+import 'package:institute_assistant_app/providers/teacher_provider.dart';
+import 'package:institute_assistant_app/screens/s_teachers_view.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -10,12 +13,19 @@ void main() {
 class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => NameProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<StudentProvider>(
+            create: (_) => StudentProvider()),
+        ChangeNotifierProvider<TeachersProvider>(
+            create: (_) => TeachersProvider()),
+        ChangeNotifierProvider<StaffProvider>(create: (_) => StaffProvider()),
+        ChangeNotifierProvider<Tasks>(create: (_) => Tasks()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Institute assistant app',
-        home: TeachersHomePage(),
+        home: TeachersAttendanceView(),
       ),
     );
   }

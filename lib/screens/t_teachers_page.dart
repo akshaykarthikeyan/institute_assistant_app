@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:institute_assistant_app/screens/t_teachers_name_and_attendance.dart';
 import 'package:institute_assistant_app/screens/t_teachers_time_table.dart';
+import 'package:institute_assistant_app/screens/t_teachers_view.dart';
 
 class TeachersPage extends StatelessWidget {
   @override

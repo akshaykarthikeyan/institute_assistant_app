@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:institute_assistant_app/models/names.dart';
-import 'package:institute_assistant_app/providers/name_provider.dart';
+import 'package:institute_assistant_app/models/teachers.dart';
+import 'package:institute_assistant_app/providers/teacher_provider.dart';
 import 'package:multi_select_item/multi_select_item.dart';
 import 'package:provider/provider.dart';
 
@@ -8,14 +8,14 @@ class TeachersAttendance extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    var nameProvider = Provider.of<NameProvider>(context);
+    var teachersProvider = Provider.of<TeachersProvider>(context);
     return FutureBuilder(
-      future: nameProvider.fetchData(),
-      builder: (BuildContext context, AsyncSnapshot<List<Names>> snapshot) {
+      future: teachersProvider.fetchData(),
+      builder: (BuildContext context, AsyncSnapshot<List<Teacher>> snapshot) {
         if (snapshot.hasData) {
-          List<Names> names = snapshot.data;
+          List<Teacher> teachers = snapshot.data;
           return AttendanceNames(
-            mainList: names,
+            mainList: teachers,
           );
         } else {
           return Container(
@@ -109,7 +109,7 @@ class _AttendanceNamesState extends State<AttendanceNames> {
                 child: Card(
                   child: ListTile(
                     title: new Text(
-                      "${mainList[index].firstName} ${mainList[index].lastName}",
+                      "${mainList[index].first_name} ${mainList[index].last_name}",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: screenWidth / 24.0,
@@ -120,7 +120,7 @@ class _AttendanceNamesState extends State<AttendanceNames> {
                     leading: ClipRRect(
                       borderRadius: BorderRadius.circular(3.0),
                       child: Image.network(
-                        '${mainList[index].picture}',
+                        '${mainList[index].images}',
                         width: screenWidth / 9,
                       ),
                     ),

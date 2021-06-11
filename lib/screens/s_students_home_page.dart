@@ -3,9 +3,9 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:institute_assistant_app/screens/map.dart';
-import 'package:institute_assistant_app/screens/s_otherstaff_attendance.dart';
+import 'package:institute_assistant_app/screens/s_otherstaff_view.dart';
 import 'package:institute_assistant_app/screens/s_student_page.dart';
-import 'package:institute_assistant_app/screens/s_teachers_view_attendance.dart';
+import 'package:institute_assistant_app/screens/s_teachers_view.dart';
 
 class StudentsHomePage extends StatelessWidget {
   final List<String> imgList = [
