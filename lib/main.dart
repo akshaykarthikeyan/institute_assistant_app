@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:institute_assistant_app/providers/classes_provider.dart';
 import 'package:institute_assistant_app/providers/staff_provider.dart';
 import 'package:institute_assistant_app/providers/student_provider.dart';
 import 'package:institute_assistant_app/providers/tasks.dart';
@@ -21,6 +22,7 @@ class MainApp extends StatelessWidget {
             create: (_) => TeachersProvider()),
         ChangeNotifierProvider<StaffProvider>(create: (_) => StaffProvider()),
         ChangeNotifierProvider<Tasks>(create: (_) => Tasks()),
+        ChangeNotifierProvider<ClassProvider>(create: (_) => ClassProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

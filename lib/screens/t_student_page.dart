@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:institute_assistant_app/screens/t_student_list%20_attendance.dart';
+import 'package:institute_assistant_app/providers/classes_provider.dart';
+import 'package:institute_assistant_app/screens/s_students_listview_attendance.dart';
+import 'package:provider/provider.dart';
 
 class TStudentPage extends StatelessWidget {
-  List cd = ['1 A', '1 B', '1 C', '1 D'];
+  List cd = ['1 ', '2', '3', '4', '5'];
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    var classProvider = Provider.of<ClassProvider>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -22,125 +26,100 @@ class TStudentPage extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              height: 200,
-              child: CupertinoDatePicker(
-                mode: CupertinoDatePickerMode.date,
-                initialDateTime: DateTime.now(),
-                onDateTimeChanged: (DateTime newDateTime) {},
-              ),
-            ),
-            SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 15.0,
-                  ),
-                  Center(
-                    child: Container(
-                      color: Colors.white,
-                      child: Text(
-                        'Classes & Divisions',
-                        style: TextStyle(
-                          fontSize: 24.0,
-                          letterSpacing: 5.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
+        child: FutureBuilder(
+          future: classProvider.fetchData(),
+          builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
+            if (snapshot.hasData) {
+              List classes = snapshot.data;
+              return SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      height: 200,
+                      child: CupertinoDatePicker(
+                        mode: CupertinoDatePickerMode.date,
+                        initialDateTime: DateTime.now(),
+                        onDateTimeChanged: (DateTime newDateTime) {},
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.red.shade500),
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Name()));
-                        },
-                        child: Container(
-                          child: Text(
-                            '1 A',
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              letterSpacing: 1.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
+                    Column(
+                      children: [
+                        SingleChildScrollView(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 15.0,
+                              ),
+                              Center(
+                                child: Container(
+                                  color: Colors.white,
+                                  child: Text(
+                                    'Classes & Divisions',
+                                    style: TextStyle(
+                                      fontSize: 24.0,
+                                      letterSpacing: 5.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10.0,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: classes.map((items) {
+                                  return Column(
+                                    children: [
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                            primary: Colors.red.shade500),
+                                        onPressed: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      StudentAttendanceView(
+                                                        title: '$items',
+                                                      )));
+                                        },
+                                        child: Container(
+                                          child: Text(
+                                            '$items',
+                                            style: TextStyle(
+                                              fontSize: 20.0,
+                                              letterSpacing: 1.0,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                }).toList(),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.red.shade500),
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Name()));
-                        },
-                        child: Container(
-                          child: Text(
-                            '1 B',
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              letterSpacing: 1.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.red.shade500),
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Name()));
-                        },
-                        child: Container(
-                          child: Text(
-                            '1 C',
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              letterSpacing: 1.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.red.shade500),
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Name()));
-                        },
-                        child: Container(
-                          child: Text(
-                            '1 D',
-                            style: TextStyle(
-                              fontSize: 20.0,
-                              letterSpacing: 1.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
+                      ],
+                    ),
+                  ],
+                ),
+              );
+            } else {
+              return Container(
+                height: screenHeight / 1.5,
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            }
+          },
         ),
       ),
     );
