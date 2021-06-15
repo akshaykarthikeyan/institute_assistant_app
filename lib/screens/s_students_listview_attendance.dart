@@ -2,26 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:institute_assistant_app/models/students.dart';
 import 'package:institute_assistant_app/providers/student_provider.dart';
 import 'package:institute_assistant_app/screens/s_students_profile.dart';
-import 'package:institute_assistant_app/screens/s_students_timetable.dart';
 import 'package:provider/provider.dart';
 
 class StudentAttendanceView extends StatelessWidget {
+  String title = '';
+  StudentAttendanceView({Key key, @required this.title});
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     var studentProvider = Provider.of<StudentProvider>(context);
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => StudentsTimeTable()),
-          );
-        },
-        child: const Icon(Icons.date_range),
-        backgroundColor: Colors.red,
-      ),
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.red.shade500,
@@ -29,7 +20,7 @@ class StudentAttendanceView extends StatelessWidget {
         centerTitle: true,
         toolbarHeight: 60.0,
         title: Text(
-          'ATTENDANCE',
+          'CLASS $title',
           style: TextStyle(
             fontSize: 17.0,
             letterSpacing: 5.0,

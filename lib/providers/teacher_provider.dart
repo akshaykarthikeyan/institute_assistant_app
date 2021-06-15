@@ -5,10 +5,6 @@ import 'package:http/http.dart' as http;
 import 'package:institute_assistant_app/models/teachers.dart';
 
 class TeachersProvider extends ChangeNotifier {
-  List getTeachers() {
-    return _teachers;
-  }
-
   String apiUrl = 'devkit.in';
   List _teachers;
   get teachers => _teachers;
@@ -35,18 +31,6 @@ class TeachersProvider extends ChangeNotifier {
       } else {
         throw Exception('Failed to load album');
       }
-    }
-  }
-
-  Future<Teacher> fetchNameData(String userId) async {
-    var url = Uri.https(
-        apiUrl, '/projects/academy/api/teachers/$userId', {'q': '{http}'});
-    final response = await http.get(url);
-    if (response.statusCode == 200) {
-      Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-      return Teacher.fromJson(jsonResponse);
-    } else {
-      throw Exception('Failed to load album');
     }
   }
 }

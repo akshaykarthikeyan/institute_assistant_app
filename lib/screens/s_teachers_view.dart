@@ -44,10 +44,11 @@ class TeachersAttendanceView extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => TeacherNameProfile(
-                                      userid: '${item.teacher_id}',
-                                      name:
-                                          '${item.first_name} ${item.last_name}',
-                                    )));
+                                    first_name: item.first_name,
+                                    last_name: item.last_name,
+                                    email: item.email,
+                                    image: item.image,
+                                    gender: item.gender)));
                       },
                       child: Card(
                         color: Colors.white60,

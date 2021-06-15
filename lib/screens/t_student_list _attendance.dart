@@ -60,7 +60,6 @@ class _AttendanceNamesState extends State<AttendanceNames> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     return WillPopScope(
       onWillPop: () async {
         var before = !controller.isSelecting;
@@ -110,7 +109,7 @@ class _AttendanceNamesState extends State<AttendanceNames> {
                 child: Card(
                   child: ListTile(
                     title: new Text(
-                      "${mainList[index].firstName} ${mainList[index].lastName}",
+                      "${mainList[index].first_name} ${mainList[index].last_name}",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: screenWidth / 24.0,
@@ -121,7 +120,7 @@ class _AttendanceNamesState extends State<AttendanceNames> {
                     leading: ClipRRect(
                       borderRadius: BorderRadius.circular(3.0),
                       child: Image.network(
-                        '${mainList[index].picture}',
+                        '${mainList[index].image}',
                         width: screenWidth / 9,
                       ),
                     ),

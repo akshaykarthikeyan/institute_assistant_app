@@ -3,7 +3,7 @@ import 'package:institute_assistant_app/providers/staff_provider.dart';
 import 'package:institute_assistant_app/providers/student_provider.dart';
 import 'package:institute_assistant_app/providers/tasks.dart';
 import 'package:institute_assistant_app/providers/teacher_provider.dart';
-import 'package:institute_assistant_app/screens/s_teachers_view.dart';
+import 'package:institute_assistant_app/screens/t_teachers_home_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -25,7 +25,7 @@ class MainApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Institute assistant app',
-        home: TeachersAttendanceView(),
+        home: TeachersHomePage(),
       ),
     );
   }

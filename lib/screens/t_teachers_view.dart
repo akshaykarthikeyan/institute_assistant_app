@@ -120,7 +120,7 @@ class _AttendanceNamesState extends State<AttendanceNames> {
                     leading: ClipRRect(
                       borderRadius: BorderRadius.circular(3.0),
                       child: Image.network(
-                        '${mainList[index].images}',
+                        '${mainList[index].image}',
                         width: screenWidth / 9,
                       ),
                     ),

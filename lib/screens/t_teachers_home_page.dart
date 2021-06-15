@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:institute_assistant_app/screens/map.dart';
 import 'package:institute_assistant_app/screens/s_otherstaff_view.dart';
-import 'package:institute_assistant_app/screens/t_student_page.dart';
+import 'package:institute_assistant_app/screens/t_students_attendance_or_list.dart';
 import 'package:institute_assistant_app/screens/t_teachers_page.dart';
 
 class TeachersHomePage extends StatelessWidget {
@@ -123,7 +123,7 @@ class TeachersHomePage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => TStudentPage(),
+                              builder: (context) => StudentSelectOption(),
                             ),
                           );
                         },
