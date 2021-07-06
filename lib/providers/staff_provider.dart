@@ -9,8 +9,8 @@ class StaffProvider extends ChangeNotifier {
   List _staff;
   get staff => _staff;
 
-  void setPlacementList(studentList) {
-    _staff = studentList;
+  void setPlacementList(staffList) {
+    _staff = staffList;
   }
 
   Future<List<Staff>> fetchData() async {

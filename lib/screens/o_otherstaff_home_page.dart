@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:institute_assistant_app/screens/map.dart';
 import 'package:institute_assistant_app/screens/o_home.dart';
+import 'package:institute_assistant_app/screens/task_view.dart';
 
 class OtherStaffHomePage extends StatelessWidget {
   final List<String> imgList = [
@@ -60,7 +61,7 @@ class OtherStaffHomePage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Home(),
+                            builder: (context) => TaskView(),
                           ),
                         );
                       },

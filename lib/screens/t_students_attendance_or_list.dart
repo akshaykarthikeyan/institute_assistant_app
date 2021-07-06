@@ -13,10 +13,10 @@ class StudentSelectOption extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red.shade500,
         title: Text(
-          'STUDENTS',
+          'STUDENTS ATTENDANCE / LIST',
           style: TextStyle(
-            fontSize: 20.0,
-            letterSpacing: 5.0,
+            fontSize: 13.0,
+            letterSpacing: 4.0,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),

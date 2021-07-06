@@ -29,6 +29,7 @@ dependencies:
   http: ^0.13.3
   multi_select_item: ^1.0.3
   flutter_neat_and_clean_calendar: ^0.2.2+10
+  yandex_mapkit: ^1.0.1
 
 
 

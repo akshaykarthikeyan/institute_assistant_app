@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neat_and_clean_calendar/flutter_neat_and_clean_calendar.dart';
-import 'package:institute_assistant_app/providers/timetable_provider.dart';
-import 'package:intl/intl.dart';
+import 'package:institute_assistant_app/providers/task_provider.dart';
 import 'package:provider/provider.dart';
 
-class TeachersTimeTable extends StatelessWidget {
+class TaskView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return TeachersTimeTables();
+    return TaskViewFul();
   }
 }
 
-class TeachersTimeTables extends StatefulWidget {
+class TaskViewFul extends StatefulWidget {
   @override
-  _TeachersTimeTablesState createState() => _TeachersTimeTablesState();
+  _TaskViewFulState createState() => _TaskViewFulState();
 }
 
-class _TeachersTimeTablesState extends State<TeachersTimeTables> {
+class _TaskViewFulState extends State<TaskViewFul> {
   @override
   void initState() {
     super.initState();
@@ -26,7 +25,7 @@ class _TeachersTimeTablesState extends State<TeachersTimeTables> {
 
   @override
   Widget build(BuildContext context) {
-    final timetableProvider = Provider.of<TimeTableProvider>(context);
+    final taskProvider = Provider.of<TaskProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red.shade500,
@@ -34,10 +33,10 @@ class _TeachersTimeTablesState extends State<TeachersTimeTables> {
         centerTitle: true,
         toolbarHeight: 60.0,
         title: Text(
-          'Teachers Timetable',
+          'Task View',
           style: TextStyle(
-            fontSize: 18.0,
-            letterSpacing: 4.0,
+            fontSize: 17.0,
+            letterSpacing: 5.0,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
@@ -45,7 +44,7 @@ class _TeachersTimeTablesState extends State<TeachersTimeTables> {
       ),
       body: SafeArea(
         child: FutureBuilder(
-          future: timetableProvider.fetchData(),
+          future: taskProvider.fetchData(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
               return Calendar(
@@ -54,7 +53,7 @@ class _TeachersTimeTablesState extends State<TeachersTimeTables> {
                 events: snapshot.data,
                 isExpandable: true,
                 eventDoneColor: Colors.green,
-                selectedColor: Colors.red,
+                selectedColor: Colors.pink,
                 todayColor: Colors.blue,
                 eventColor: Colors.grey,
                 locale: 'en_us',
@@ -66,19 +65,19 @@ class _TeachersTimeTablesState extends State<TeachersTimeTables> {
                   fontSize: 11,
                 ),
                 eventListBuilder: (BuildContext context,
-                    List<NeatCleanCalendarEvent> _selectedEvent) {
-                  return _selectedEvent.length > 0
+                    List<NeatCleanCalendarEvent> _selectedEvents) {
+                  return _selectedEvents.length > 0
                       ? SingleChildScrollView(
                           child: Column(
-                            children: _selectedEvent
-                                .map((timetable) => Container(
-                                      color: timetable.color,
+                            children: _selectedEvents
+                                .map((task) => Container(
+                                      color: task.color,
                                       child: new Row(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: <Widget>[
                                           Expanded(
-                                            flex: 60,
+                                            flex: 100,
                                             child: Padding(
                                               padding:
                                                   const EdgeInsets.all(8.0),
@@ -89,38 +88,12 @@ class _TeachersTimeTablesState extends State<TeachersTimeTables> {
                                                     MainAxisAlignment.center,
                                                 children: [
                                                   Text(
-                                                    timetable.summary,
+                                                    task.summary,
                                                     style: TextStyle(
                                                       color: Colors.white,
                                                     ),
                                                   ),
-                                                  Text(timetable.description)
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                          Expanded(
-                                            flex: 40,
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  (timetable.startTime !=
-                                                              null &&
-                                                          timetable.endTime !=
-                                                              null)
-                                                      ? Text(
-                                                          '${new DateFormat.jm().format(timetable.startTime)} - ${new DateFormat.jm().format(timetable.endTime)}',
-                                                          style: TextStyle(
-                                                            color: Colors.white,
-                                                          ),
-                                                        )
-                                                      : Text(''),
+                                                  Text(task.description)
                                                 ],
                                               ),
                                             ),

@@ -16,13 +16,13 @@ class ClassProvider extends ChangeNotifier {
     if (_class != null) {
       return _class;
     } else {
-      print('data');
       var url =
           Uri.https(apiUrl, '/projects/academy/api/classes', {'q': '{http}'});
       final response = await http.get(url);
-      print(response.statusCode);
+
       if (response.statusCode == 200) {
         List<dynamic> jsonResponse = convert.jsonDecode(response.body)['data'];
+        print(jsonResponse);
         return jsonResponse;
       } else {
         throw Exception('Failed to load album');

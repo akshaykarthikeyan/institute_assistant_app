@@ -5,12 +5,14 @@ import 'package:multi_select_item/multi_select_item.dart';
 import 'package:provider/provider.dart';
 
 class Name extends StatelessWidget {
+  String title = '';
+  Name({Key key, @required this.title});
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     var studentProvider = Provider.of<StudentProvider>(context);
     return FutureBuilder(
-      future: studentProvider.fetchData(),
+      future: studentProvider.fetchData(this.title),
       builder: (BuildContext context, AsyncSnapshot<List<Student>> snapshot) {
         if (snapshot.hasData) {
           List<Student> student = snapshot.data;

@@ -9,6 +9,7 @@ class TStudentPageList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     var classProvider = Provider.of<ClassProvider>(context);
     return Scaffold(
       backgroundColor: Colors.white,
@@ -16,9 +17,9 @@ class TStudentPageList extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red.shade500,
         title: Text(
-          'STUDENTS',
+          'CLASSES & DIVISIONS',
           style: TextStyle(
-            fontSize: 18.0,
+            fontSize: 15.0,
             letterSpacing: 5.0,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -30,6 +31,7 @@ class TStudentPageList extends StatelessWidget {
           future: classProvider.fetchData(),
           builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
             if (snapshot.hasData) {
+              print(snapshot.data);
               List classes = snapshot.data;
               return SingleChildScrollView(
                 child: Column(
@@ -42,58 +44,50 @@ class TStudentPageList extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SizedBox(
-                                height: 15.0,
-                              ),
-                              Center(
-                                child: Container(
-                                  color: Colors.white,
-                                  child: Text(
-                                    'Classes & Divisions',
-                                    style: TextStyle(
-                                      fontSize: 24.0,
-                                      letterSpacing: 5.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
                                 height: 10.0,
                               ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: classes.map((item) {
-                                  return Column(
-                                    children: [
-                                      ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                            primary: Colors.red.shade500),
-                                        onPressed: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StudentAttendanceView(
-                                                        title: '${item}',
-                                                      )));
-                                        },
-                                        child: Container(
-                                          child: Text(
-                                            '${item}',
-                                            style: TextStyle(
-                                              fontSize: 20.0,
-                                              letterSpacing: 1.0,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.white,
+                              Center(
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: cd.map((item) {
+                                    return Column(
+                                      children: [
+                                        SizedBox(
+                                          width: screenWidth / 1.1,
+                                          height: screenHeight / 13,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  primary: Colors.red.shade500),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            StudentAttendanceView(
+                                                              title: '$item',
+                                                            )));
+                                              },
+                                              child: Container(
+                                                child: Text(
+                                                  '$item',
+                                                  style: TextStyle(
+                                                    fontSize: 20.0,
+                                                    letterSpacing: 1.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  );
-                                }).toList(),
+                                      ],
+                                    );
+                                  }).toList(),
+                                ),
                               ),
                             ],
                           ),

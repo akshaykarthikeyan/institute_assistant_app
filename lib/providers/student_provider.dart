@@ -13,12 +13,12 @@ class StudentProvider extends ChangeNotifier {
     _students = studentList;
   }
 
-  Future<List<Student>> fetchData() async {
+  Future<List<Student>> fetchData(String title) async {
     if (_students != null) {
       return _students;
     } else {
-      var url =
-          Uri.https(apiUrl, '/projects/academy/api/students', {'q': '{http}'});
+      var url = Uri.https(
+          apiUrl, '/projects/academy/api/students/${title}', {'q': '{http}'});
       final response = await http.get(url);
       if (response.statusCode == 200) {
         List<dynamic> jsonResponse = convert.jsonDecode(response.body)['data'];

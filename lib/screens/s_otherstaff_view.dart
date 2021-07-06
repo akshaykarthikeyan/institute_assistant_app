@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:institute_assistant_app/models/staffs.dart';
 import 'package:institute_assistant_app/providers/staff_provider.dart';
+import 'package:institute_assistant_app/screens/o_list_task.dart';
 import 'package:provider/provider.dart';
 
 class OtherStaffAttendance extends StatelessWidget {
@@ -36,44 +37,53 @@ class OtherStaffAttendance extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: staff.map((item) {
-                    return Card(
-                      color: Colors.white60,
-                      child: Row(children: [
-                        Expanded(
-                          flex: 2,
-                          child: Container(
-                              child: Image.network(
-                            '${item.image}',
-                            width: screenWidth / 10,
-                            height: screenHeight / 12,
-                          )),
-                        ),
-                        Expanded(
-                          flex: 8,
-                          child: Container(
-                            width: double.infinity,
-                            height: screenHeight / 9.5,
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: 10.0,
-                                ),
-                                Text(
-                                  '${item.first_name}'
-                                  ' ${item.last_name}',
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: screenWidth / 22.0,
-                                    letterSpacing: 2.0,
-                                    fontWeight: FontWeight.bold,
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    ListTask(title: 'TOTAL')));
+                      },
+                      child: Card(
+                        color: Colors.white60,
+                        child: Row(children: [
+                          Expanded(
+                            flex: 2,
+                            child: Container(
+                                child: Image.network(
+                              '${item.image}',
+                              width: screenWidth / 10,
+                              height: screenHeight / 12,
+                            )),
+                          ),
+                          Expanded(
+                            flex: 8,
+                            child: Container(
+                              width: double.infinity,
+                              height: screenHeight / 9.5,
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 10.0,
                                   ),
-                                ),
-                              ],
+                                  Text(
+                                    '${item.first_name}'
+                                    ' ${item.last_name}',
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: screenWidth / 22.0,
+                                      letterSpacing: 2.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ]),
+                        ]),
+                      ),
                     );
                   }).toList(),
                 ),

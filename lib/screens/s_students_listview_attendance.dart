@@ -31,7 +31,7 @@ class StudentAttendanceView extends StatelessWidget {
       ),
       body: SafeArea(
         child: FutureBuilder(
-          future: studentProvider.fetchData(),
+          future: studentProvider.fetchData(this.title),
           builder:
               (BuildContext context, AsyncSnapshot<List<Student>> snapshot) {
             if (snapshot.hasData) {
@@ -46,9 +46,11 @@ class StudentAttendanceView extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => NameProfile(
-                                      userid: '${item.student_id}',
-                                      name:
+                                      student_id: '${item.student_id}',
+                                      first_name:
                                           '${item.first_name} ${item.last_name}',
+                                      email: '${item.email}',
+                                      gender: '${item.gender}',
                                     )));
                       },
                       child: Card(

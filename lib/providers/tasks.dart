@@ -73,8 +73,8 @@ class Tasks extends ChangeNotifier {
   }
 
   //function to add tasks
-  void addTasks(task) {
-    _tasks.add(task);
+  void addTasks(tasks) {
+    _tasks.add(tasks);
     print(_tasks);
     notifyListeners();
   }

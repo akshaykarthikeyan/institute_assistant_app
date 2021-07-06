@@ -33,7 +33,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
           color: Colors.blue[700]),
     ],
     DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 2):
-    [
+        [
       NeatCleanCalendarEvent('Event B',
           startTime: DateTime(DateTime.now().year, DateTime.now().month,
               DateTime.now().day + 2, 10, 0),
@@ -48,7 +48,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
           color: Colors.pink),
     ],
     DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day + 3):
-    [
+        [
       NeatCleanCalendarEvent('Event B',
           startTime: DateTime(DateTime.now().year, DateTime.now().month,
               DateTime.now().day + 2, 10, 0),

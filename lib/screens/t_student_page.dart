@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:institute_assistant_app/providers/classes_provider.dart';
-import 'package:institute_assistant_app/screens/s_students_listview_attendance.dart';
+import 'package:institute_assistant_app/screens/t_student_list%20_attendance.dart';
 import 'package:provider/provider.dart';
 
 class TStudentPage extends StatelessWidget {
@@ -9,6 +9,7 @@ class TStudentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     var classProvider = Provider.of<ClassProvider>(context);
     return Scaffold(
       backgroundColor: Colors.white,
@@ -16,9 +17,9 @@ class TStudentPage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red.shade500,
         title: Text(
-          'STUDENTS',
+          'CLASSES & DIVISION',
           style: TextStyle(
-            fontSize: 18.0,
+            fontSize: 15.0,
             letterSpacing: 5.0,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -52,52 +53,52 @@ class TStudentPage extends StatelessWidget {
                               SizedBox(
                                 height: 15.0,
                               ),
-                              Center(
-                                child: Container(
-                                  color: Colors.white,
-                                  child: Text(
-                                    'Classes & Divisions',
-                                    style: TextStyle(
-                                      fontSize: 24.0,
-                                      letterSpacing: 5.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                              ),
                               SizedBox(
                                 height: 10.0,
                               ),
-                              Row(
+                              Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: classes.map((items) {
                                   return Column(
                                     children: [
-                                      ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                            primary: Colors.red.shade500),
-                                        onPressed: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      StudentAttendanceView(
-                                                        title: '$items',
-                                                      )));
-                                        },
-                                        child: Container(
-                                          child: Text(
-                                            '$items',
-                                            style: TextStyle(
-                                              fontSize: 20.0,
-                                              letterSpacing: 1.0,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.white,
+                                      Column(
+                                        children: [
+                                          Container(
+                                            height: screenHeight / 13.0,
+                                            width: screenWidth / 1.1,
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                    primary:
+                                                        Colors.red.shade500),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              Name(
+                                                                title: '$items',
+                                                              )));
+                                                },
+                                                child: Container(
+                                                  child: Text(
+                                                    '$items',
+                                                    style: TextStyle(
+                                                      fontSize: 20.0,
+                                                      letterSpacing: 1.0,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
                                             ),
                                           ),
-                                        ),
+                                        ],
                                       ),
                                     ],
                                   );
