@@ -1,4 +1,6 @@
+import 'package:double_back_to_close/double_back_to_close.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:institute_assistant_app/providers/classes_provider.dart';
 import 'package:institute_assistant_app/providers/staff_provider.dart';
 import 'package:institute_assistant_app/providers/student_provider.dart';
@@ -6,7 +8,7 @@ import 'package:institute_assistant_app/providers/task_provider.dart';
 import 'package:institute_assistant_app/providers/tasks.dart';
 import 'package:institute_assistant_app/providers/teacher_provider.dart';
 import 'package:institute_assistant_app/providers/timetable_provider.dart';
-import 'package:institute_assistant_app/screens/t_teachers_home_page.dart';
+import 'package:institute_assistant_app/screens/login.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -30,9 +32,14 @@ class MainApp extends StatelessWidget {
             create: (_) => TimeTableProvider()),
       ],
       child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Institute assistant app',
-          home: TeachersHomePage()),
+        debugShowCheckedModeBanner: false,
+        title: 'Institute assistant app',
+        builder: EasyLoading.init(),
+        home: DoubleBack(
+          message: "Press back again to close",
+          child: Login(),
+        ),
+      ),
     );
   }
 }

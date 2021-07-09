@@ -194,7 +194,7 @@ class StudentsHomePage extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 Text(
-                                  'Teachers List',
+                                  'Teachers',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 22.0,
@@ -246,7 +246,7 @@ class StudentsHomePage extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 Text(
-                                  'Staffs List',
+                                  'Staff',
                                   style: TextStyle(
                                     inherit: true,
                                     color: Colors.white,

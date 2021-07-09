@@ -20,7 +20,7 @@ class StudentAttendanceView extends StatelessWidget {
         centerTitle: true,
         toolbarHeight: 60.0,
         title: Text(
-          'CLASS $title',
+          'CLASS',
           style: TextStyle(
             fontSize: 17.0,
             letterSpacing: 5.0,
@@ -51,6 +51,7 @@ class StudentAttendanceView extends StatelessWidget {
                                           '${item.first_name} ${item.last_name}',
                                       email: '${item.email}',
                                       gender: '${item.gender}',
+                                      image: '${item.image}',
                                     )));
                       },
                       child: Card(

@@ -1,19 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neat_and_clean_calendar/flutter_neat_and_clean_calendar.dart';
 
-void main() => runApp(StaffTimeTable());
-
-class StaffTimeTable extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: CalendarScreen(),
-    );
-  }
-}
-
 class CalendarScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

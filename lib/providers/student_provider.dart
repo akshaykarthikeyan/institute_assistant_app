@@ -18,7 +18,7 @@ class StudentProvider extends ChangeNotifier {
       return _students;
     } else {
       var url = Uri.https(
-          apiUrl, '/projects/academy/api/students/${title}', {'q': '{http}'});
+          apiUrl, '/projects/academy/api/students/3/${title}', {'q': '{http}'});
       final response = await http.get(url);
       if (response.statusCode == 200) {
         List<dynamic> jsonResponse = convert.jsonDecode(response.body)['data'];
@@ -34,9 +34,9 @@ class StudentProvider extends ChangeNotifier {
     }
   }
 
-  Future<Student> fetchNameData(String userid) async {
-    var url = Uri.https(
-        apiUrl, '/projects/academy/api/students/$userid', {'q': '{http}'});
+  Future<Student> fetchNameData(String student_id) async {
+    var url = Uri.https(apiUrl, '/projects/academy/api/students/3/$student_id',
+        {'q': '{http}'});
     final response = await http.get(url);
     if (response.statusCode == 200) {
       Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);

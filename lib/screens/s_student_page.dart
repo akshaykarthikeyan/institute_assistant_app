@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:institute_assistant_app/screens/s_students_timetable.dart';
+import 'package:institute_assistant_app/screens/t_teachers_time_table.dart';
 
 class StudentPage extends StatelessWidget {
   List cd = ['1 A', '1 B', '1 C', '1 D'];
@@ -64,7 +64,7 @@ class StudentPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => StudentsTimeTable()));
+                              builder: (context) => TeachersTimeTable()));
                     },
                     child: Container(
                       child: Text(
@@ -85,7 +85,7 @@ class StudentPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => StudentsTimeTable()));
+                              builder: (context) => TeachersTimeTable()));
                     },
                     child: Container(
                       child: Text(
@@ -106,7 +106,7 @@ class StudentPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => StudentsTimeTable()));
+                              builder: (context) => TeachersTimeTable()));
                     },
                     child: Container(
                       child: Text(
@@ -127,7 +127,7 @@ class StudentPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => StudentsTimeTable()));
+                              builder: (context) => TeachersTimeTable()));
                     },
                     child: Container(
                       child: Text(
