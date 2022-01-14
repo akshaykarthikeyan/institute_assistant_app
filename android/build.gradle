@@ -24,6 +24,14 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

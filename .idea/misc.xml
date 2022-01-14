@@ -3,9 +3,6 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <type id="android" />
   </component>
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/lib/screens/staff_attendance_marking.dart" />
-  </component>
   <component name="ProjectType">
     <option name="id" value="io.flutter" />
   </component>

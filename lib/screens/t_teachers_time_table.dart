@@ -34,7 +34,7 @@ class _TeachersTimeTablesState extends State<TeachersTimeTables> {
         centerTitle: true,
         toolbarHeight: 60.0,
         title: Text(
-          'Teachers Timetable',
+          'Timetable',
           style: TextStyle(
             fontSize: 18.0,
             letterSpacing: 4.0,
