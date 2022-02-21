@@ -70,7 +70,6 @@ class _LoginState extends State<Login> {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        color: Colors.red,
                         decoration: BoxDecoration(color: Colors.white),
                         child: DropdownButtonFormField(
                           decoration: InputDecoration(
